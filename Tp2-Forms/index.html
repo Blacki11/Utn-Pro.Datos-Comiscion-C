@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function datasos() {
+        //sacamos el value de los elementos simples
+        vnombre = document.getElementById("nombre").value;
+        vapellido = document.getElementById("apellido").value;
+        vdbi = document.getElementById("dni").value;
+        vlocalidad = document.getElementById("domicilio").value;
+        vdomicilio = document.getElementById("localidad").value;
+        vdate = document.getElementById("date").value;
+
+        //Sacamos el value de los outputs
+        var vespañol = document.getElementById("Español1").value;
+        var vingles = document.getElementById("Ingles1").value;
+        var vchino = document.getElementById("Chino1").value;
+        var vfrances = document.getElementById("frances1").value;
+
+        //Traemos los valores de los checkbox
+        let checkespañol = document.getElementById("Español").checked;
+        let checkingles = document.getElementById("Ingles").checked;
+        let checkchino = document.getElementById("Chino").checked;
+        let checkfrances = document.getElementById("frances").checked;
+
+        /* Imprime de los datos */
+        document.write("Los datos ingresados fueron: <br/>");
+        document.write("<p><p/>");
+        document.write("Apellido: " + vapellido + "<br/>");
+        document.write("Nombre: " + vnombre + "<br/>");
+        document.write("Dni: " + vdbi + "<br/>");
+        document.write("Localidad: " + vlocalidad + "<br/>");
+        document.write("Domicilio: " + vdomicilio + "<br/>");
+        document.write("Fecha de nacimiento: " + vdate + "<br/>");
+
+        /**********************************************/
+        // Verificamos si los checkbox estan tildados o no
+        if (checkespañol) {
+          //si estan los Imprimimos, con su valor numerico
+          document.write("Español: " + vespañol + "<br/>");
+        }
+        if (checkingles) {
+          document.write("Ingles: " + vingles + "<br/>");
+        }
+        if (checkchino) {
+          document.write("Chino: " + vchino + "<br/>");
+        }
+        if (checkfrances) {
+          document.write("Frances: " + vfrances + "<br/>");
+        }
+
+        document.write("<br/><strong>Gracias por sus datos</strong>");
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Formulario TP2</h2>
+
+    <form action="" method="post">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" />
+
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" />
+      <p></p>
+
+      <label for="dni">DNI:</label>
+      <input type="number" id="dni" />
+
+      <label for="date">Fecha de nacimiento: </label>
+      <input type="date" id="date" /><br />
+      <p></p>
+
+      <label for="domicilio">Domicilio </label>
+      <input type="text" id="domicilio" value="" />
+
+      <label for="localidad">Localidad: </label>
+      <input type="text" id="localidad" value="" />
+
+      <h2>Idiomas que conoces</h2>
+      <p>Teniendo en cuenta que 0 es saber nada del idioma y 100 es hablar de forma nativa</p>
+      <input type="checkbox" name="languages" id="Español" value="Español" />
+      <label for="Español"> Español </label>
+      <output id="out0" name="out0" for="Español">0</output>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        name="medidor"
+        id="Español1"
+        value="0"
+        onchange="document.getElementById('outid').value=value"
+      />
+      <output id="outid" name="outid" for="Español" value="0">100</output>
+      <p></p>
+
+      <input type="checkbox" name="languages" value="Ingles" id="Ingles" />
+      <label for="Ingles">Inlges</label>
+      <output id="out1" name="out1" for="Ingles">0</output>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        name="medidor"
+        id="Ingles1"
+        value="0"
+        onchange="document.getElementById('outid1').value=value"
+      />
+      <output id="outid1" name="outid1" for="Ingles">100</output>
+      <p></p>
+
+      <input type="checkbox" name="languages" value="Chino" id="Chino" />
+      <label for="Chino">Chino</label>
+      <output id="out2" name="out2" for="Chino">0</output>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        name="medidor"
+        id="Chino1"
+        value="0"
+        onchange="document.getElementById('outid2').value=value"
+      />
+      <output id="outid2" name="outid2" for="Chino">100</output>
+      <p></p>
+
+      <input type="checkbox" name="languages" value="frances" id="frances" />
+      <label for="frances">Frances</label>
+      <output id="out3" name="out3" for="frances">0</output>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        name="medidor"
+        id="frances1"
+        value="0"
+        onchange="document.getElementById('outid3').value=value"
+      />
+      <output id="outid3" name="outid3" for="frances">100</output>
+      <p></p>
+
+      <button type="submit" onclick="datasos()">Enviar y Mostrar</button>
+      <button type="reset">Borrar</button>
+    </form>
+  </body>
+</html>
